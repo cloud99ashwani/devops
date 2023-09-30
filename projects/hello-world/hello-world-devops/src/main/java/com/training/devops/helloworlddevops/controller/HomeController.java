@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.training.devops.helloworlddevops.model.ApplicationDetails;
 
+import lombok.extern.log4j.Log4j2;
+
 @RestController
 @RequestMapping(path = "/")
+@Log4j2
 public class HomeController {
 	
 	String machinename= UUID.randomUUID().toString();
@@ -25,6 +28,7 @@ public class HomeController {
 	
 	@GetMapping
 	public ApplicationDetails getHome() {
+		log.info("Welcome to Application - {}",applicationName);
 		String ip ="Oops";
 		try {
 			ip = InetAddress.getLocalHost().getHostAddress();
