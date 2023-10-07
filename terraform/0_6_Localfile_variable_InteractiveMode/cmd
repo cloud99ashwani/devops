@@ -1,3 +1,13 @@
 terraform init
 terraform plan
 terraform apply
+# Override the values 
+terraform apply -var "filename=pets2.txt" -var "content=We love pets2" -var "prefix=Sir" -var "separator=." -var "length=2"
+
+# Overide the values through environment variables
+export TF_VAR_filename="pets3.txt"
+export TF_VAR_content="We love pets3"
+export TF_VAR_prefix="Mrs3"
+export TF_VAR_separator="."
+export TF_VAR_length="3"
+terraform apply
