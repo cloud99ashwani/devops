@@ -1,2 +1,5 @@
 terraform init
 # create .terraform dir 
+terraform plan
+
+terraform apply
