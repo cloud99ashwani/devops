@@ -1,7 +1,7 @@
 terraform version
 terraform init
-export AWS_ACCESS_KEY_ID=AKIAWTPKML3EKGTDDAN2
-export AWS_SECRET_ACCESS_KEY=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
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
 
 terraform plan
 terraform console
