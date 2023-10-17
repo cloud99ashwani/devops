@@ -1,0 +1,17 @@
+terraform fmt
+terrafrom validate
+terraform init
+echo "************** ----------- INIT ----------- ****************"
+terraform plan
+echo "************** ----------- Apply ----------- ****************"
+terraform apply -auto-approve
+echo "************** ----------- Show ----------- ****************"
+terraform show
+echo "************** ----------- Sleep for some minute ----------- ****************"
+sleep 300 
+echo "************** ----------- Destroy----------- ****************"
+terraform destroy -auto-approve
+echo "************** ----------- Remove all files ----------- ****************"
+GLOBIGNORE=*.tf:cmd:runclean
+rm -rv *
+echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Deleted all files  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
