@@ -11,6 +11,6 @@ sleep 300
 echo "************** ----------- Destroy----------- ****************"
 terraform destroy -auto-approve
 echo "************** ----------- Remove all files ----------- ****************"
-GLOBIGNORE=*.tf:cmd:runclean
+GLOBIGNORE=*.tf:cmd::*.doc:runclean
 rm -rv *
 echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Deleted all files  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
