@@ -18,3 +18,16 @@ provider "aws" {
 resource "aws_iam_user" "user" {
   name = "aws_tf_user"
 }
+
+/* resource "aws_iam_access_key" "AccK" {
+  user = aws_iam_user.user.name
+}
+
+output "secret_key" {
+  value     = aws_iam_access_key.AccK.secret
+  sensitive = true
+}
+
+output "access_key" {
+  value = aws_iam_access_key.AccK.id
+} */
