@@ -2,6 +2,7 @@ resource "aws_security_group" "elb_sg" {
   name   = "elb_sg"
   vpc_id = aws_default_vpc.default.id
 
+# Allow inbound HTTP requests
   ingress {
     from_port   = 80
     to_port     = 80
@@ -9,6 +10,7 @@ resource "aws_security_group" "elb_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+# Allow all outbound requests
   egress {
     from_port   = 0
     to_port     = 0
