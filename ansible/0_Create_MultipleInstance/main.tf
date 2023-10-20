@@ -7,6 +7,10 @@ terraform {
     }
   }
 }
+variable "tagname" {
+  default = ["DEV", "DEV", "QA"]
+  type    = list(string)
+}
 
 # Configure the AWS s3 bucket
 # Configure the AWS Provider
@@ -23,4 +27,8 @@ resource "aws_instance" "http_server" {
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
   subnet_id              = "subnet-0417c5d404bb817ea"
   count                  = 3
+
+  tags = {
+    key_name = var.tagname[count.index]
+  }
 }

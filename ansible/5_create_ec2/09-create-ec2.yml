@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  tasks:
+  - name: launching AWS instance using Ansible
+    ec2:
+      key_name: default-ec2
+      instance_type: t2.micro
+      image: ami-041feb57c611358bd
+      region: us-east-1
+      vpc_subnet_id: default
+      assign_public_id: yes
+      groups: ["http_server_sg"]
+      instance_tags: {type: http, Environment: QA}
+      wait: yes
+      count: 1
+    register: output_ec2
+  - debug: var=output_ec2

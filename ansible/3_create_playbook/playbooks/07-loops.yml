@@ -1,0 +1,25 @@
+---
+- hosts: qa 
+  vars: 
+    #system: "Linux"
+    system: "Windows"
+    color: "Red"
+  tasks:
+    #- debug: var=hostvars
+    - debug: var=ansible_system
+    - debug: var=color
+      when: system == "Linux"
+    - debug: var=item
+      with_items: 
+      - item1
+      - item2
+    - debug: var=item
+      with_items: 
+      - name: SUN
+        fullname: SUNDAY
+      - name: MON
+        fullname: MONDAY
+      - name: TUE
+        fullname: TUESDAY
+      - name: FRI
+        fullname: FRIDAY

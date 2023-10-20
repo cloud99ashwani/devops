@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: Ping All Server
+      action: ping 
+    - debug: msg="Hello"
+# - hosts: aws_ec2
+#   tasks:
+#     - name: Execute shell commands
+#       shell: uname
+# - hosts: DEV
+#   tasks:
+#     - name: Execute shell commands
+#       shell: whoami
