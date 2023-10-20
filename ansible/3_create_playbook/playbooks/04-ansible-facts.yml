@@ -1,0 +1,12 @@
+---
+- hosts: qa
+  tasks:
+   - name: Kernal
+     debug: msg="{{ ansible_kernel }}"
+   - name: Hostname
+     debug: msg="{{ ansible_hostname }}"
+   - debug: var=ansibel_distribution
+   - debug: var=invertory_hostname
+   - debug: var=groups
+   - debug: var=group_names
+   #- debug: var=hostvars (Same info with the cmd -  ansible qa -m setup >> vm_info )

@@ -1,0 +1,7 @@
+---
+- hosts: dev
+  vars:
+    variable1: "PlayBookValue"
+  tasks:
+    - name: variable example
+      debug: msg="Hello - {{ variable1 }}"

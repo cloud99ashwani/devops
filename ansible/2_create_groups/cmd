@@ -1,0 +1,17 @@
+# run on all the hosts
+ansible all -a "python3 --version"
+
+# run on the  dev group hosts
+ansible dev -a "python3 --version"
+# run on the qa group hosts
+ansible qa -a "python3 --version"
+
+ansible mix -a "python3 --version"
+
+ansible groupofgroups -a "python3 --version"
+ansible devsubset -a "python3 --version"
+ansible --list-host all
+ansible --list-host dev
+ansible --list-host mix
+ansible --list-host \!mix
+ansible --list-host qa:dev

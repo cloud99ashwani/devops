@@ -1,0 +1,11 @@
+---
+- hosts: dev
+# enable sudo root
+  become: true
+  tasks:
+    - yum:
+        name:
+          - httpd
+        state: present 
+    - service: name=httpd state=started enabled=yes
+    - raw: "echo Welcome to Ansible | tee /var/www/html/index.html"

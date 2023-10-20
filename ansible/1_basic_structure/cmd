@@ -1,0 +1,13 @@
+# change permission
+chmod 400 ~/aws/aws_keys/default-ec2.pem
+
+ansible --version
+# checking the connectivity 
+ansible -m ping all
+# Get Username 
+ansible all -a "whoami"
+# get os name
+ansible all -a "uname"
+
+# connect with ssh
+ssh -vvv -i ~/aws/aws_keys/default-ec2.pem ec2-user@3.238.127.181
