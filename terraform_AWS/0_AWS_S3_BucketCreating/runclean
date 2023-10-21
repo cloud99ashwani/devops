@@ -1,4 +1,5 @@
 terraform fmt
+terraform validate
 terraform init
 echo "************** ----------- INIT ----------- ****************"
 terraform plan
@@ -6,7 +7,7 @@ echo "************** ----------- Apply ----------- ****************"
 terraform apply -auto-approve
 echo "************** ----------- Show ----------- ****************"
 terraform show
-echo "************** ----------- Sleep 1 minute ----------- ****************"
+echo "************** ----------- Sleep 5 minute ----------- ****************"
 sleep 300 
 echo "************** ----------- Destroy----------- ****************"
 terraform destroy -auto-approve
