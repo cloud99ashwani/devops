@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.19"
+      version = "~> 5.22"
     }
   }
 }
@@ -19,10 +19,10 @@ resource "aws_iam_user" "user" {
   name = "aws_tf_user"
 }
 
-/* resource "aws_iam_access_key" "AccK" {
+resource "aws_iam_access_key" "AccK" {
   user = aws_iam_user.user.name
 }
-
+# terraform console not showing the aws_iam_access_key, that reason we are display in output
 output "secret_key" {
   value     = aws_iam_access_key.AccK.secret
   sensitive = true
@@ -30,4 +30,4 @@ output "secret_key" {
 
 output "access_key" {
   value = aws_iam_access_key.AccK.id
-} */
+} 

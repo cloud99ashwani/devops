@@ -7,7 +7,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.21"
+      version = "~> 5.22"
     }
   }
 }
@@ -40,12 +40,6 @@ resource "aws_s3_object" "s3_file" {
   source = "./document.doc"
 }
 
-
-
-#check before get output
-#terraform output
-# > aws_s3_bucket.s3
-# > aws_s3_bucket.s3.versioning
 /* output "Verify_version" {
     value = aws_s3_bucket.s3.versioning[0].enabled
 }
@@ -53,3 +47,9 @@ resource "aws_s3_object" "s3_file" {
 output "Verify_complete" {
     value = aws_s3_bucket.s3
 } */
+
+
+#check before get output
+#terraform console
+# > aws_s3_bucket.s3
+# > aws_s3_bucket.s3.versioning
