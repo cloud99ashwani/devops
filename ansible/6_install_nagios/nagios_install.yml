@@ -1,0 +1,13 @@
+---
+- hosts: server
+  become: true
+  become_method: sudo
+  tasks:
+    # - name: Download and run nagios
+    #   shell: wget https://assets.nagios.com/downloads/nagiosxi/xi-latest.tar.gz
+    # - name: extract gz
+    #   shell: tar xzf xi-latest.tar.gz
+    - name: change dir
+      shell: ./fullinstall
+      args:
+        chdir: nagiosxi

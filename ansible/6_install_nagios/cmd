@@ -1,0 +1,1 @@
+ansible-playbook nagios_install.yml  
