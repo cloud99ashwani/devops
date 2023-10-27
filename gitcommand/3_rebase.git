@@ -1,0 +1,31 @@
+## master m1 -> m2 -> m3
+## feature      m2 -> f1- f2
+## rebase fearure -> m1 - m2 -> (m3) -> f1 -> f2
+
+
+rm -rv *
+git init
+echo "m1" >> m1
+git add m1
+git commit -m "m1"
+echo "m2" >> m2
+git add m2
+git commit -m "m2"
+git branch feature
+git checkout feature
+git log --oneline
+echo "f1" >> f1
+git add f1
+git commit -m "f1"
+echo "f2" >> f2
+git add f2
+git commit -m "f2"
+git checkout master
+echo "m3" >> m3
+git add m3
+git commit -m "m3"
+git log --oneline
+git checkout feature
+git log --oneline
+git rebase master
+git log --oneline

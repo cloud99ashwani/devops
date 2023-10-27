@@ -1,0 +1,49 @@
+## master           m1 ->   m2 
+## feature1                 m2 -> f1- f2 (modify the m2 file)
+## feature1 merge           m2 -> f1- f2  
+## feature2                 m2 -> ff1- ff2 (modify the m2 file)
+## feature2 merge           m2 -> ff1- ff2 
+## showing error -> open file -> modify the changes -> save then git add and git commit
+
+
+
+rm -rv *.*
+git init
+echo "m1" >> m1
+git add m1
+git commit -m "m1"
+echo -e "Line 1\nLine 2\nLine 3" > m2
+git add m2
+git commit -m "m2"
+git branch feature1
+git branch feature2
+git checkout feature1
+git log --oneline
+echo "f1" >> f1
+git add f1
+git commit -m "f1"
+echo -e "Line 1\nLine 2 - change by feature 1\nLine 3" > m2
+git add m2
+git commit -m "f2"
+git checkout master
+git merge feature1
+git status
+
+git checkout feature2
+git log --oneline
+echo "ff2" >> ff2
+git add ff2
+git commit -m "ff2"
+echo -e "Line 1\nLine 2 - change by feature 2\nLine 3" > m2
+git add m2
+git commit -m "ff2"
+git checkout master
+git merge feature2
+git status
+
+>>>>>>>>>>>>>>>>>>>>>> check the conflict on m2 file ==========
+modify the change on m2 file 
+then save it 
+git add m2
+git commit -m "ff2 merged"
+git status

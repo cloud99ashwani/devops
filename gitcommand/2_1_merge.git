@@ -1,0 +1,28 @@
+## master m1 -> m2 
+## feature      m2 -> f1- f2
+## merge master -> m1 - m2 -> f1 -> f2
+## merge master -> m1 - m2 -> (f1 -> f2) SQUASH
+
+rm -rv *
+git init
+echo "m1" >> m1
+git add m1
+git commit -m "m1"
+echo "m2" >> m2
+git add m2
+git commit -m "m2"
+git branch feature
+git checkout feature
+git log --oneline
+echo "f1" >> f1
+git add f1
+git commit -m "f1"
+echo "f2" >> f2
+git add f2
+git commit -m "f2"
+git checkout master
+git merge --squash feature
+git status
+git log --oneline
+git commit -m "feature merge with master"
+git log --oneline
