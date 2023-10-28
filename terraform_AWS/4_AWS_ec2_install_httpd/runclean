@@ -7,7 +7,7 @@ echo "************** ----------- Apply ----------- ****************"
 terraform apply -auto-approve
 echo "************** ----------- Show ----------- ****************"
 terraform show
-echo "************** ----------- Sleep 1 minute ----------- ****************"
+echo "************** ----------- Sleep 5 minute ----------- ****************"
 sleep 300 
 echo "************** ----------- Destroy----------- ****************"
 terraform destroy -auto-approve
