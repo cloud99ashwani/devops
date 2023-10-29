@@ -1,5 +1,5 @@
 terraform fmt
-terrafrom validate
+terraform validate
 terraform init
 echo "************** ----------- INIT ----------- ****************"
 terraform plan
