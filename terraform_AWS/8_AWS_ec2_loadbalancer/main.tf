@@ -65,7 +65,7 @@ resource "aws_instance" "http_server1" {
     inline = [
       "sudo yum install httpd -y",
       "sudo service httpd start",
-      "echo Welcome Virtal server - ${self.public_dns} | sudo tee /var/www/html/index.html"
+      "echo Welcome Virtal server 1- ${self.public_dns} | sudo tee /var/www/html/index.html"
     ]
   }
 }
@@ -96,7 +96,7 @@ resource "aws_instance" "http_server2" {
     inline = [
       "sudo yum install httpd -y",
       "sudo service httpd start",
-      "echo Welcome Virtal server - ${self.public_dns} | sudo tee /var/www/html/index.html"
+      "echo Welcome Virtal server 2 - ${self.public_dns} | sudo tee /var/www/html/index.html"
     ]
   }
 }

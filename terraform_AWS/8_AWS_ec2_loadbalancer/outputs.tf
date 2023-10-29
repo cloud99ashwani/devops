@@ -10,6 +10,6 @@ output "aws_instance_public_dns" {
   value = aws_instance.http_server1.public_dns
 }
 
-output "aws_load-balance-dns"{
-  value =  aws_elb.elb.dns_name
+output "aws_load-balance-dns" {
+  value = aws_elb.elb.dns_name
 }
