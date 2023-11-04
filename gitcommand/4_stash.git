@@ -1,0 +1,42 @@
+git init
+echo "m1" >> m1
+git add m1
+git commit -m "m1"
+
+echo "m2" >> m2
+git add m2
+git commit -m "m2"
+
+git branch feature
+git checkout feature
+git log --oneline
+
+echo "f1" >> f1
+git add f1
+
+echo "f2" >> f2
+git add f2
+
+git stash save "feature f1 f2"
+
+echo "f3" >> f3
+git add f3
+git commit -m "f3"
+
+echo "f4" >> f4
+git add f4
+git commit -m "f4"
+
+echo "f5" >> f5
+git add f5
+
+echo "f6" >> f6
+git add f6
+
+git stash save "feature f5 f6"
+
+git stash list
+
+git stash apply stash@{1}
+git stash list
+git stash drop stash@{1}
