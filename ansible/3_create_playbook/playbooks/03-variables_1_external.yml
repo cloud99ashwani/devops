@@ -1,7 +1,9 @@
 ---
 - hosts: dev
+  vars_files:
+    - variables.yml
   vars:
-    variable1: "PlayBookValue"
+    variable1: "Interval file value"
   tasks:
     - name: variable example
       debug: msg="Hello - {{ variable1 }}"

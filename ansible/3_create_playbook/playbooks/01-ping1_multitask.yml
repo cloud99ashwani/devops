@@ -4,6 +4,6 @@
     - name: Ping All Servers
       action: ping
     - debug: msg="Hello"
-- hosts: dev
+- hosts: qa
   tasks:
      - debug: msg="Hello"

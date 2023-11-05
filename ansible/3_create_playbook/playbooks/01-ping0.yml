@@ -3,4 +3,4 @@
   tasks:
     - name: Ping All Servers
       action: ping
-    #- debug: "msg=Hello"  
+    - debug: "msg=Hello"
