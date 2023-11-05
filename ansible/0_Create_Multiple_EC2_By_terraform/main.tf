@@ -25,7 +25,7 @@ resource "aws_instance" "http_server" {
   key_name               = "default-ec2"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
-  subnet_id              = "subnet-0417c5d404bb817ea"
+  subnet_id              = "subnet-07b07e2737a71d19e"
   count                  = 3
 
   tags = {

@@ -1,7 +1,7 @@
 resource "aws_security_group" "http_server_sg" {
   name = "http_server_sg"
   # Get from AWS Console
-  vpc_id = "vpc-01c7a8e4c9741c1f4"
+  vpc_id = "vpc-03b4d02322aa071c5"
 
   ingress {
     from_port   = 80
