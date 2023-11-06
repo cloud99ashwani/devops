@@ -1,1 +1,1 @@
-ansible-playbook 09-create-ec2.yml
+ansible-playbook create-ec2.yml
