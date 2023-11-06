@@ -9,3 +9,5 @@
         state: present 
     - service: name=httpd state=started enabled=yes
     - raw: "echo Welcome to Ansible | tee /var/www/html/index.html"
+
+# Note : check with http://public-domain/ only not on https

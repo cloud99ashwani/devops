@@ -1,3 +1,3 @@
 ansible-inventory --list
 ansible-inventory --graph
-ansible-playbook 08-dynamic-inventory-ping.yml
+ansible-playbook dynamic-inventory-ping.yml

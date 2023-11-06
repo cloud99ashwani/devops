@@ -8,7 +8,7 @@ terraform {
   }
 }
 variable "tagname" {
-  default = ["DEV", "DEV", "QA"]
+  default = ["dev", "dev", "qa"]
   type    = list(string)
 }
 

@@ -4,11 +4,11 @@
     - name: Ping All Server
       action: ping 
     - debug: msg="Hello"
-# - hosts: aws_ec2
+# - hosts: qa
 #   tasks:
 #     - name: Execute shell commands
 #       shell: uname
-# - hosts: DEV
+# - hosts: dev
 #   tasks:
 #     - name: Execute shell commands
 #       shell: whoami

@@ -3,13 +3,12 @@
   hosts: all   
   become: True
   vars:
-    nginx_version: 1
     nginx_html: /usr/share/nginx/html
     user_home: .
     index_html: index.html
   tasks:
     - name: Install the latest version of nginx
-      command: amazon-linux-extras install nginx{{ nginx_version }}=latest -y
+      command: yum install nginx -y
 
     - name: Start nginx service
       service:

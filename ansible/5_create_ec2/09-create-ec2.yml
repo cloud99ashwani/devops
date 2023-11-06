@@ -8,10 +8,10 @@
       region: us-east-1
       security_group: "default"
       tags: 
-        Environment: QA
+        Environment: qa
       network:
             assign_public_ip: true
       wait: yes
-      count: 1
+      count: 3
     register: output_ec2
   - debug: var=output_ec2
