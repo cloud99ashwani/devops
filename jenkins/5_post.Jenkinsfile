@@ -11,7 +11,7 @@ pipeline {
         always {
             echo 'i m awesome. i run always'
             emailext subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' -  Build" ,
-                body: "Check console output at ${env.BUILD_URL}/console" ,
+                body: "Check console output at ${env.BUILD_URL}console" ,
                 to: 'test@example.com'
         }
         success {
