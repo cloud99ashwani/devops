@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Initialization') {
             steps {
-                echo "${JAVA_INSTALLATION_PATH}"
+                echo "${jdk17}"
             }
         }
     }
