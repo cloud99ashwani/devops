@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Initialization') {
             steps {
-                echo "${jdk17}"
+                echo "${JAVA_HOME}"
             }
         }
     }
