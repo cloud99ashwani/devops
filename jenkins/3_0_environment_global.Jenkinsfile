@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Initialization') {
             steps {
-                echo 'Hello World'
+                echo "${JAVA_INSTALLATION_PATH}"
             }
         }
     }

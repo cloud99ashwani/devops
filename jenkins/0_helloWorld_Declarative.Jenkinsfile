@@ -12,8 +12,8 @@ pipeline {
                 branch 'production'
             }
             input {
-                message "Deploy to production?"
-                id "simple-input"
+                message 'Deploy to production?'
+                id 'simple-input'
             }
             steps {
                 echo 'Deploying'
