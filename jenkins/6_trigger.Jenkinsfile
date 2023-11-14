@@ -4,7 +4,7 @@ pipeline {
         cron('H/15 * * * *')
     }
     stages {
-        stage('Example') {
+        stage('Build Trigger') {
             steps {
                 echo 'Hello World'
             }
