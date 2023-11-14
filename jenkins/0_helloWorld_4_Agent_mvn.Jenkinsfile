@@ -1,10 +1,10 @@
 // Declarative
-
 pipeline {
     agent { docker { image 'maven:3.6.3-openjdk-17' } }
     stages {
         stage('Build') {
             steps {
+                sh 'mvn --version'
                 echo 'Build!'
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             echo 'i m awesome. i run always'
