@@ -81,7 +81,12 @@ pipeline {
                 expression { env.currentBranch == 'prd' }
             }
             steps {
-                kubernetesDeploy(configs: "${DIR}/deployment.yaml")
+                kubernetesEngineDeploy projectId: 'snappy-bucksaw-398913',
+                         clusterName: 'hello-world-cluster',
+                         manifestPattern: "${DIR}/deployment.yaml",
+                         credentialsId: 'k8_credentials-id',
+                         verifyDeployments: true
+
                 // step([  $class: 'KubernetesEngineBuilder',
                 //         projectId: 'snappy-bucksaw-398913',
                 //         clusterName: 'hello-world-cluster',
