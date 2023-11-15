@@ -47,10 +47,23 @@ pipeline {
             steps {
                 // docker push
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-credentials-id') {
+                    docker.withRegistry('', 'docker-credentials-id') {
                         dockerImage.push()
                     }
                 }
+            }
+        }
+
+        stage('k8 deployment') {
+            steps {
+                //kubernetesDeploy(configs: "${DIR}/deployment.yaml")
+                step([  $class: 'KubernetesEngineBuilder',
+                        projectId: 'snappy-bucksaw-398913',
+                        clusterName: 'hello-world-cluster',
+                        manifestPattern: "${DIR}/deployment.yaml",
+                        credentialsId: 'k8_credentials-id',
+                        verifyDeployments: true]
+                     )
             }
         }
     }

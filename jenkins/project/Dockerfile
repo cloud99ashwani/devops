@@ -11,9 +11,9 @@ COPY target/jenkins-hello-world-devops*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 # Create image
-# Docker build . -t cloud99ashwani/jenkins-hello-world:v1
+# Docker build . -t cloud99ashwani/jenkins-hello-world:dev
 # create container
-# Docker run -it -p 8881:8080 cloud99ashwani/jenkins-hello-world:v1
-# Docker run -it -p 8882:8080 cloud99ashwani/jenkins-hello-world:v1
+# Docker run -it -p 8881:8080 cloud99ashwani/jenkins-hello-world:dev
+# Docker run -it -p 8882:8080 cloud99ashwani/jenkins-hello-world:dev
 # push image to hub.docker.com , must be login
 # Docker push 
