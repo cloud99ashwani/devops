@@ -47,7 +47,7 @@ pipeline {
             steps {
                 // docker push
                 script {
-                    docker.withRegistry('', 'dockerhub') {
+                    docker.withRegistry('https://hub.docker.com', 'docker-credentials-id') {
                         dockerImage.push()
                     }
                 }
