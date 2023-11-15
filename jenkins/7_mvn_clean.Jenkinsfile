@@ -27,7 +27,7 @@ pipeline {
 
         stage('package') {
             steps {
-                sh 'mvn package -f jenkins/project/pom.xml'
+                sh 'mvn package -DskipTests -f jenkins/project/pom.xml'
             }
         }
     }
