@@ -1,14 +1,21 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'BRANCH', choices: ['dev', 'prd'], description: 'Choose env')
+    }
     environment {
         DIR = 'jenkins/project'
         POM = "${DIR}/pom.xml"
         DOCKER_HOME = tool 'DOCKER_PATH'
         MAVEN_HOME = tool 'MAVEN_PATH'
         PATH = "DOCKER_HOME/bin:$MAVEN_HOME/bin:$PATH"
+        currentBranch = "${params.BRANCH}"
     }
     stages {
         stage('Checkout - Load Tools') {
+            when {
+                currentBranch 'dev'
+            }
             steps {
                 sh 'mvn --version'
                 sh 'docker version'
@@ -16,24 +23,36 @@ pipeline {
         }
 
         stage('compile') {
+            when {
+                currentBranch 'dev'
+            }
             steps {
                 sh "mvn clean compile -f ${POM}"
             }
         }
 
         stage('Test') {
+            when {
+                currentBranch 'dev'
+            }
             steps {
                 sh "mvn test -f ${POM}"
             }
         }
 
         stage('package') {
+            when {
+                currentBranch 'dev'
+            }
             steps {
                 sh "mvn package -DskipTests -f ${POM}"
             }
         }
 
         stage('build docker image') {
+            when {
+                currentBranch 'dev'
+            }
             steps {
                 // docker build . -t cloud99ashwani/jenkins-hello-world:dev
                 sh 'pwd'
@@ -44,6 +63,9 @@ pipeline {
         }
 
         stage('push docker image') {
+            when {
+                currentBranch 'dev'
+            }
             steps {
                 // docker push
                 script {
@@ -55,6 +77,9 @@ pipeline {
         }
 
         stage('k8 deployment') {
+            when {
+                currentBranch 'prd'
+            }
             steps {
                 //kubernetesDeploy(configs: "${DIR}/deployment.yaml")
                 step([  $class: 'KubernetesEngineBuilder',
