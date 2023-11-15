@@ -15,19 +15,19 @@ pipeline {
 
         stage('compile') {
             steps {
-                sh 'mvn clean compile -f jenkins/pom.xml'
+                sh 'mvn clean compile -f jenkins/project/pom.xml'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test -f jenkins/project/pom.xml'
             }
         }
 
         stage('package') {
             steps {
-                sh 'mvn package'
+                sh 'mvn package -f jenkins/project/pom.xml'
             }
         }
     }
