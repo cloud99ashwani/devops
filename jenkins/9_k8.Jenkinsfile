@@ -24,7 +24,7 @@ pipeline {
 
         stage('compile') {
             when {
-                currentBranch 'dev'
+                expression { env.currentBranch == 'dev' }
             }
             steps {
                 sh "mvn clean compile -f ${POM}"
@@ -33,7 +33,7 @@ pipeline {
 
         stage('Test') {
             when {
-                currentBranch 'dev'
+                expression { env.currentBranch == 'dev' }
             }
             steps {
                 sh "mvn test -f ${POM}"
@@ -42,7 +42,7 @@ pipeline {
 
         stage('package') {
             when {
-                currentBranch 'dev'
+                expression { env.currentBranch == 'dev' }
             }
             steps {
                 sh "mvn package -DskipTests -f ${POM}"
@@ -51,7 +51,7 @@ pipeline {
 
         stage('build docker image') {
             when {
-                currentBranch 'dev'
+                expression { env.currentBranch == 'dev' }
             }
             steps {
                 // docker build . -t cloud99ashwani/jenkins-hello-world:dev
@@ -64,7 +64,7 @@ pipeline {
 
         stage('push docker image') {
             when {
-                currentBranch 'dev'
+                expression { env.currentBranch == 'dev' }
             }
             steps {
                 // docker push
@@ -78,7 +78,7 @@ pipeline {
 
         stage('k8 deployment') {
             when {
-                currentBranch 'prd'
+                expression { env.currentBranch == 'prd' }
             }
             steps {
                 //kubernetesDeploy(configs: "${DIR}/deployment.yaml")
