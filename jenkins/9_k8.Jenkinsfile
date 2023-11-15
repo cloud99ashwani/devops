@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout - Load Tools') {
             when {
-                currentBranch 'dev'
+                env.currentBranch 'dev'
             }
             steps {
                 sh 'mvn --version'
