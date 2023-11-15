@@ -36,7 +36,7 @@ pipeline {
         stage('build docker image') {
             steps {
                 // docker build . -t cloud99ashwani/jenkins-hello-world:dev
-                sh pwd
+                sh 'pwd'
                 script {
                     dockerImage =  docker.build('cloud99ashwani/jenkins-hello-world:dev', "-f ${DIR}/Dockerfile")
                 }
