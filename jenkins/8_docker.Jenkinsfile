@@ -55,3 +55,5 @@ pipeline {
         }
     }
 }
+
+// docker run cloud99ashwani/jenkins-hello-world:dev
