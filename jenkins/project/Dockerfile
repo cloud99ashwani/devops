@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 Label project=training.com
 
 # Add the application's jar to the image
-COPY target/hello-world-devops*.jar app.jar
+COPY target/jenkins-hello-world-devops*.jar app.jar
 
 # execute the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
