@@ -38,7 +38,7 @@ pipeline {
                 // docker build . -t cloud99ashwani/jenkins-hello-world:dev
                 sh 'pwd'
                 script {
-                    dockerImage =  docker.build('cloud99ashwani/jenkins-hello-world:dev', "-f ${DIR}/Dockerfile")
+                    dockerImage =  docker.build('cloud99ashwani/jenkins-hello-world:dev', "-f ${DIR}/Dockerfile", "${DIR}")
                 }
             }
         }
