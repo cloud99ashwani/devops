@@ -88,7 +88,7 @@ pipeline {
                 //         manifestPattern: "${DIR}/deployment.yaml",
                 //         credentialsId: 'k8_credentials-id',
                 //         verifyDeployments: true]
-                     )
+                //     )
             }
         }
     }
