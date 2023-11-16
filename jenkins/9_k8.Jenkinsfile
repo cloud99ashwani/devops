@@ -84,7 +84,7 @@ pipeline {
                 kubernetesEngineDeploy projectId: 'snappy-bucksaw-398913',
                          clusterName: 'hello-world-cluster',
                          manifestPattern: "${DIR}/deployment.yaml",
-                         credentialsId: 'k8project',
+                         credentialsId: '6cee3734-69eb-4c62-9a74-aaf2767b6022',
                          verifyDeployments: true
             }
         }
