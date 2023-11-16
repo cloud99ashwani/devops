@@ -84,16 +84,8 @@ pipeline {
                 kubernetesEngineDeploy projectId: 'snappy-bucksaw-398913',
                          clusterName: 'hello-world-cluster',
                          manifestPattern: "${DIR}/deployment.yaml",
-                         credentialsId: 'k8_credentials-id',
+                         credentialsId: 'k8project',
                          verifyDeployments: true
-
-                // step([  $class: 'KubernetesEngineBuilder',
-                //         projectId: 'snappy-bucksaw-398913',
-                //         clusterName: 'hello-world-cluster',
-                //         manifestPattern: "${DIR}/deployment.yaml",
-                //         credentialsId: 'k8_credentials-id',
-                //         verifyDeployments: true]
-                //     )
             }
         }
     }
