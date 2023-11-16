@@ -22,9 +22,9 @@ spec:
           image: cloud99ashwani/jenkins-hello-world:dev
           imagePullPolicy: Always
           ports:
-          - containerPort: 5000
+          - containerPort: 8181
 
-          
+
 ---
 apiVersion: v1
 kind: Service
@@ -35,7 +35,7 @@ metadata:
 spec:
   ports:
     - port: 5000
-      targetPort: 5000
+      targetPort: 8181
   selector:
     app: hello
     tier: hello
