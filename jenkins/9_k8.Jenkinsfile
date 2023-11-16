@@ -84,8 +84,15 @@ pipeline {
                 kubernetesEngineDeploy projectId: 'snappy-bucksaw-398913',
                          clusterName: 'hello-world-cluster',
                          manifestPattern: "${DIR}/deployment.yaml",
+                         lcoation: 'us-central1-c',
                          credentialsId: '6cee3734-69eb-4c62-9a74-aaf2767b6022',
                          verifyDeployments: true
+
+                // step([$class: 'KubernetesEngineBuilder', 
+                // projectId: env.PROJECT_ID, 
+                // clusterName: env.CLUSTER_NAME, 
+                // location: env.LOCATION,
+                // manifestPattern: 'deployment.yaml', credentialsId: '6cee3734-69eb-4c62-9a74-aaf2767b6022', verifyDeployments: true])
             }
         }
     }
