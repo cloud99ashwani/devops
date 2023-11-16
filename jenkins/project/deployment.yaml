@@ -23,7 +23,7 @@ spec:
           imagePullPolicy: Always
           ports:
           - containerPort: 5000
-            name: jenkins-hello-world
+            name: jenkins-hello
 
 
 ---
