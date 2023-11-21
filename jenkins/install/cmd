@@ -1,21 +1,6 @@
 # create network
 docker network create jenkins
 
-# Run the docker image for execute Docker commands inside Jenkins nodes
-docker run \
-  --name jenkins-docker \
-  --rm \
-  --detach \
-  --privileged \
-  --network jenkins \
-  --network-alias docker \
-  --env DOCKER_TLS_CERTDIR=/certs \
-  --volume jenkins-docker-certs:/certs/client \
-  --volume jenkins-data:/var/jenkins_home \
-  --publish 2376:2376 \
-  docker:dind \
-  --storage-driver overlay2
-
 # create image
 docker build -t jenkins-image --file=jenkins.Dockerfile .
 
@@ -32,6 +17,21 @@ docker run --name jenkins-container \
   --volume jenkins-data:/var/jenkins_home \
   --volume jenkins-docker-certs:/certs/client:ro \
   jenkins-image
+
+# Run the docker image for execute Docker commands inside Jenkins nodes
+docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
 
 # Browser
 http://localhost:8888
