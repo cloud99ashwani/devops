@@ -9,4 +9,4 @@ echo "Length of '$str' is $length"
 length=`echo $str | wc -c`  
 echo "Length of '$str' is $length"  
 length=`echo $str |awk '{print length}'`  
-echo "Length of '$str' is $length"  
+echo "Length of '$str' is $length"
