@@ -26,6 +26,9 @@ job('job_dsl_mailer') {
                     echo “current date is $(date)”
               '''
             )
-        mailer('developer@gmail.com',true,true)
-    }        
+    }
+
+    publishers {
+         mailer('developer@gmail.com',false,true)
+    }
 }
