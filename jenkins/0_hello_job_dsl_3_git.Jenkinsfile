@@ -11,3 +11,6 @@ job('job_dsl_git') {
         git('https://github.com/cloud99ashwani/devops', 'master')
     }
 }
+// run below command in docker container
+// git config --global user.email "cloud99.ashwani@gmail.com"
+// git config --global user.name "clooud99ashwani"

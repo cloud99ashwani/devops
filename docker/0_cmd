@@ -1,0 +1,2 @@
+docker pull amazonlinux
+docker run -it amazonlinux bin/sh
