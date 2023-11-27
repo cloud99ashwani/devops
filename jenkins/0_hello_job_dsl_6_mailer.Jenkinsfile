@@ -11,7 +11,7 @@ job('job_dsl_mailer') {
         git('https://github.com/cloud99ashwani/devops', 'master')
     }
 
-      triggers {
+    triggers {
         cron('H 5 * * 7')
     }
 

@@ -1,2 +1,15 @@
 docker pull amazonlinux
 docker run -it amazonlinux bin/sh
+
+
+docker search mysql
+Docker pull mysql
+Docker pull mysql:
+docker run mysql
+
+Docker images
+docker rmi busybox
+
+
+
+
