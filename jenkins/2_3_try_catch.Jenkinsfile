@@ -1,7 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Interactive_Input') {
+        stage('Build'){
+            steps {
+                echo('build the project')
+            }
+        }
+        stage('Production Deployment Validation') {
             steps {
                 script {
                     // Variables for input
@@ -25,11 +30,12 @@ pipeline {
                         approver = userInput.name ?:''
                         passcode = userInput.passcode ?:''
                         if(passcode.indexOf(" ") > 0){
-                            error 'Program failed, please read logs...'
+                            error 'Program failed, Passcode not correct...'
                         }
                     } catch (error) {
                         approver = 'Admin'
                         passcode = 'Valid_Passcode'
+                        
                     }
                     // Echo to console
                     echo("Approver: ${approver}")

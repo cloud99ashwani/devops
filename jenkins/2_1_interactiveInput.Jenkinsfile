@@ -1,7 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage("Interactive_Input") {
+        stage('Build'){
+            steps {
+                echo("build the project")
+            }
+        }
+        stage("Production Deployment Validation") {
             steps {
                 script {
                     // Variables for input
@@ -23,11 +28,16 @@ pipeline {
                     // Save to variables. Default to empty string if not found.
                     approver = userInput.name?:''
                     passcode = userInput.passcode?:''
-
+                    
                     // Echo to console
                     echo("Approver: ${approver}")
                     echo("Passcode: ${passcode}")
                 }
+            }
+        }
+        stage('Deploy on Prod'){
+            steps {
+                echo("build the project")
             }
         }
     }

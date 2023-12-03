@@ -1,7 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Interactive_Input') {
+        stage('Build'){
+            steps {
+                echo('build the project')
+            }
+        }
+        stage('Production Deployment Validation') {
             steps {
                 script {
                     // Variables for input
