@@ -27,7 +27,15 @@ pipeline {
                     // Echo to console
                     echo("Approver: ${approver}")
                     echo("Passcode: ${passcode}")
+                    if(passcode.indexOf(" ") > 0){
+                        error "Program failed, please read logs..."
+                    }
                 }
+            }
+        }
+        stage ('Deploy on Prod') {
+            steps {
+                echo 'Complete successfully'
             }
         }
     }

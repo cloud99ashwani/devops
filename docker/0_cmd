@@ -3,13 +3,28 @@ docker run -it amazonlinux bin/sh
 
 
 docker search mysql
+
 Docker pull mysql
-Docker pull mysql:
-docker run mysql
-
-Docker images
-docker rmi busybox
+Docker pull mysql:latest
+Docker pull mysql:8.0.35-debian
 
 
+docker rmi [image_name] | [image_id] 
+
+docker ps -a
+docker containter ps -a
+docker rm [cotainer_id] | [container_name]
+
+docker tag mysql:latest mysql:current
+
+
+docker run nginx
+docker run --name mynginx nginx (dont create if already exists)
+
+docker rm [container_id] ... [container_id] .. (Already stoped)
+
+docker stop [container_id] ... [container_id] .. 
+docker run --name mynginx -p80:80 nginx
+docker run --name mynginx7 -p7777:80 nginx
 
 
