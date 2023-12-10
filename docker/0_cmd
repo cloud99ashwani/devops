@@ -14,7 +14,8 @@ docker rmi [image_name] | [image_id]
 docker ps -a
 docker containter ps -a
 docker rm [cotainer_id] | [container_name]
-
+docker rm [cotainer_id] | [container_name] --force
+docker 
 docker tag mysql:latest mysql:current
 
 
@@ -26,5 +27,52 @@ docker rm [container_id] ... [container_id] .. (Already stoped)
 docker stop [container_id] ... [container_id] .. 
 docker run --name mynginx -p80:80 nginx
 docker run --name mynginx7 -p7777:80 nginx
+docker run -d --name mynginx81 -p8881:80 nginx
+
+docker exec -it mynginx81 /bin/bash
+docker exec -it mynginx81 du
+docker exec -it mynginx81 echo welcome
+docker exec -it mynginx81 mkdir devops_traning
+docker logs mynginx
+docker inspect mynginx81
+docker container stats
+
+
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=root  -d mysql
+docker exec -it mysql mysql -uroot -proot
+
+docker exec mysql sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > ./all-databases_backup.sql
+
+docker run --name mysql_DB -e MYSQL_ROOT_PASSWORD=root -d mysql
+docker exec -it mysql_DB mysql -uroot -proot
+
+docker exec -i mysql_DB sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < ./all-databases_backup.sql
+
+docker run --name mysql_DB -e MYSQL_ROOT_PASSWORD=root -d -p3399:3306 mysql
+docker run --name mysql_DB_88 -e MYSQL_ROOT_PASSWORD=root -d -p3388:3306 mysql
+
+DBweaver connection string (if face any problem in connectivity)
+
+
+docker run --name mysql_DB -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
+docker run --name mysql_DB_99 -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
+docker exec -it mysql_DB mysql -uroot -proot
+docker exec -it mysql_DB_99 mysql -uroot -proot
+
+docker inspect [container_id]
+
+
+#-----------SQL------------------
+create database training;
+use training;
+create table Person(
+Id int,
+LastName varchar(255),
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255)
+);
+insert into Person values(1, 'Guest', 'Guest', 'Address','City');
+select * from Person;
 
 
