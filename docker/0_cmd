@@ -48,11 +48,11 @@ docker exec -it mysql_DB mysql -uroot -proot
 
 docker exec -i mysql_DB sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < ./all-databases_backup.sql
 
-docker run --name mysql_DB -e MYSQL_ROOT_PASSWORD=root -d -p3399:3306 mysql
+docker run --name mysql_DB_77 -e MYSQL_ROOT_PASSWORD=root -d -p3399:3306 mysql
 docker run --name mysql_DB_88 -e MYSQL_ROOT_PASSWORD=root -d -p3388:3306 mysql
 
 DBweaver connection string (if face any problem in connectivity)
-
+jdbc:mysql://localhost:3399?allowPublicKeyRetrieval=true&useSSL=false
 
 docker run --name mysql_DB -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
 docker run --name mysql_DB_99 -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
