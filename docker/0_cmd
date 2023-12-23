@@ -54,12 +54,43 @@ docker run --name mysql_DB_88 -e MYSQL_ROOT_PASSWORD=root -d -p3388:3306 mysql
 DBweaver connection string (if face any problem in connectivity)
 jdbc:mysql://localhost:3399?allowPublicKeyRetrieval=true&useSSL=false
 
-docker run --name mysql_DB -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
-docker run --name mysql_DB_99 -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql
+docker run --name mysql_DB -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d -p 6666:3306 mysql
 docker exec -it mysql_DB mysql -uroot -proot
-docker exec -it mysql_DB_99 mysql -uroot -proot
+docker run --name mysql_DB_99 -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d -p 7777:3306 mysql
+
 
 docker inspect [container_id]
+
+docker commit mysql_DB mysql_db_training # ImageName = ubantu-os-image
+docker run --name mysql_DB -v ~/AWS/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d -p 6666:3306 mysql_db_training
+docker exec -it mysql_DB mysql -uroot -proot
+docker diff mysql_DB
+
+#-------------create image of your custom projects-----------------
+docker pull mysql = docker pull docker.io/mysql/mysql:latest
+docker run mysql/mysql:8.8.8
+docker build -t cloud99ashwani/hello-world-java:10.10.10 projects/hello-world/hello-world-java/.
+docker run -p 5000:5000 cloud99ashwani/hello-world-java:10.10.10
+docker push cloud99ashwani/hello-world-java:10.10.10
+docker rmi cloud99ashwani/hello-world-java:10.10.10
+docker run -p 5000:5000 cloud99ashwani/hello-world-java:10.10.10
+#---------- create another image after modify the code
+#stop the container running before on port 5000
+docker build -t cloud99ashwani/hello-world-java:20.20.20 projects/hello-world/hello-world-java/.
+docker push cloud99ashwani/hello-world-java:20.20.20
+docker run --name helloworld -p5000:5000 cloud99ashwani/hello-world-java:20.20.20
+
+# create image from container
+docker export --output="helloworld_container.tar" helloworld
+docker import helloworld_container.tar helloworld_container_img:99.99.99
+docker import helloworld_container.tar --change 'ENTRYPOINT ["sh", "-c", "java -jar /hello-world-java.jar"]' helloworld_container_img:99.99.99
+docker run -p5000:5000 helloworld_container_img:99.99.99
+
+# save image to local drive
+docker save –-output="helloworld_img.tar" helloworld_container_img:99.99.99
+docker load --input helloworld_img.tar
+
+
 
 
 #-----------SQL------------------
@@ -74,5 +105,4 @@ City varchar(255)
 );
 insert into Person values(1, 'Guest', 'Guest', 'Address','City');
 select * from Person;
-
-
+#-----------------------------
