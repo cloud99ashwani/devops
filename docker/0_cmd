@@ -82,7 +82,6 @@ docker run --name helloworld -p5000:5000 cloud99ashwani/hello-world-java:20.20.2
 
 # create image from container
 docker export --output="helloworld_container.tar" helloworld
-docker import helloworld_container.tar helloworld_container_img:99.99.99
 docker import helloworld_container.tar --change 'ENTRYPOINT ["sh", "-c", "java -jar /hello-world-java.jar"]' helloworld_container_img:99.99.99
 docker run -p5000:5000 helloworld_container_img:99.99.99
 

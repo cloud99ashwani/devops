@@ -1,0 +1,2 @@
+docker compose -f ./docker-compose/2_nginx_multiple_service.docker-compose.yaml up
+docker compose -f ./docker-compose/2_nginx_multiple_service.docker-compose.yaml down

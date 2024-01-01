@@ -3,7 +3,7 @@ ENV MYSQL_ROOT_PASSWORD=root
 ENV MYSQL_DATABASE company
 # All scripts in docker-entrypoint-initdb.d/ are automatically
 # executed during container startup
-USER 
+
 COPY ./mysql/script/ /docker-entrypoint-initdb.d/
 
 
