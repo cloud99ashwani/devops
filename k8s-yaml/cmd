@@ -1,0 +1,28 @@
+#redirect to google login page
+gcloud auth login 
+gcloud config configurations list # check the list of configuration
+# check the  project ID - If it is not correct, run the below cmd
+gcloud config set project hip-caster-410509
+# select project -  copy from google console
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+gcloud container clusters get-credentials hello-world-cluster --zone us-central1-c --project hip-caster-410509
+kubectl config current-context
+
+kubectl get pods
+
+
+kubectl create deployment helloworld --image=cloud99ashwani/helloworld:v1
+kubectl expose deployment helloworld --type=LoadBalancer --port=8080
+
+# URL: (External Hostname defined at cluster)
+# Hit with external URL : http://34.27.243.103:8080/
+kubectl get services 
+
+# deploy the same application on other nodes
+kubectl scale deployment helloworld --replicas=3
+
+
+
+
+kubectl autoscale deployment helloworld --min=1 --max=3 --cpu-percent=70
+kubectl get hpa -o wide
