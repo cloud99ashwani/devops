@@ -6,11 +6,14 @@ echo "************** ----------- Apply ----------- ****************"
 terraform apply -auto-approve
 echo "************** ----------- Show ----------- ****************"
 terraform show
+echo "************** ----------- output----------- ****************"
+terraform output
+terraform output pen-name
 echo "************** ----------- Sleep 1 minute ----------- ****************"
 sleep 60 
 echo "************** ----------- Destroy----------- ****************"
 terraform destroy -auto-approve
 echo "************** ----------- Remove all files ----------- ****************"
-GLOBIGNORE=*.tf:cmd:runclean
+GLOBIGNORE=*.tf:cmd:runclean:*.tfvars
 rm -rv *
 echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Deleted all files  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
