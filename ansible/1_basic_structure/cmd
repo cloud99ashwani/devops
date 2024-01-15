@@ -1,5 +1,7 @@
 # change permission
 chmod 400 ~/aws/aws_keys/default-ec2.pem
+# connect with ssh
+ssh -vvv -i ~/aws/aws_keys/default-ec2.pem ec2-user@54.197.150.55
 
 ansible --version
 # checking the connectivity 
@@ -13,6 +15,4 @@ ansible all -m shell -a 'uptime'
 
 # copy file from source to destination server
 ansible all -m copy -a 'src=./hello.doc dest=/tmp/hello.doc'
-
-# connect with ssh
-ssh -vvv -i ~/aws/aws_keys/default-ec2.pem ec2-user@3.238.127.181
+ansible all -m shell -a 'ls -ltra /tmp/hello.doc'

@@ -1,3 +1,4 @@
+#!/bin/bash
 terraform fmt
 terraform init
 terraform validate
@@ -7,7 +8,7 @@ echo "************** ----------- Apply ----------- ****************"
 terraform apply -auto-approve
 echo "************** ----------- Show ----------- ****************"
 terraform show
-echo "************** ----------- Sleep for some minutes ----------- ****************"
+echo "************** ----------- Sleep for some minutes (60 for 1 minutes)----------- ****************"
 sleep 3600
 echo "************** ----------- Destroy----------- ****************"
 terraform destroy -auto-approve
