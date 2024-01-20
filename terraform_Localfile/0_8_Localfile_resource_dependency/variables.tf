@@ -1,14 +1,14 @@
-variable "filename"{
+variable "filename" {
 }
 
-variable "content"{
+variable "content" {
 }
 
-variable "prefix"{
+variable "prefix" {
 }
 
-variable "separator"{
+variable "separator" {
 }
 
-variable "length"{
+variable "length" {
 }
