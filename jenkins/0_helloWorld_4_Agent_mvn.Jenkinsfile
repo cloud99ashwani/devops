@@ -25,7 +25,7 @@ pipeline {
             echo 'i m awesome. i run always'
         }
         success {
-            echo 'i run when you are successfull'
+             mailer('developer@gmail.com',false,true)
         }
         failure {
             echo 'i run when you are fail'
