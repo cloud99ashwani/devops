@@ -25,7 +25,9 @@ pipeline {
             echo 'i m awesome. i run always'
         }
         success {
-             mailer('developer@gmail.com',false,true)
+             emailext subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' -  Build" ,
+                body: "Check console output at ${env.BUILD_URL}console" ,
+                to: 'test@example.com'
         }
         failure {
             echo 'i run when you are fail'
