@@ -19,15 +19,15 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
-            echo 'i m awesome. i run always'
-        }
-        success {
-             emailext subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' -  Build" ,
+            emailext subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' -  Build" ,
                 body: "Check console output at ${env.BUILD_URL}console" ,
                 to: 'test@example.com'
+        }
+        success {
+            echo 'i run when you are success'
         }
         failure {
             echo 'i run when you are fail'
