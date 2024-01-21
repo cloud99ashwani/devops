@@ -22,9 +22,7 @@ pipeline {
 
     post {
         always {
-            emailext subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' -  Build" ,
-                body: "Check console output at ${env.BUILD_URL}console" ,
-                to: 'test@example.com'
+            emailext subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' -  Build" , body: "Check console output at ${env.BUILD_URL}console" , to: 'test@example.com'
         }
         success {
             echo 'i run when you are success'
