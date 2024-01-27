@@ -81,12 +81,12 @@ pipeline {
                 expression { env.currentBranch == 'prd' }
             }
             steps {
-                kubernetesEngineDeploy projectId: 'snappy-bucksaw-398913',
-                         clusterName: 'hello-world-cluster',
-                         manifestPattern: "${DIR}/deployment.yaml",
-                         location: 'us-central1-c',
-                         credentialsId: '6cee3734-69eb-4c62-9a74-aaf2767b6022',
-                         verifyDeployments: true
+                kubernetesEngineDeploy projectId: 'hip-caster-410509',
+                        clusterName: 'hello-world-cluster',
+                        manifestPattern: "${DIR}/deployment.yaml",
+                        location: 'us-central1-c',
+                        credentialsId: 'd042ac41-e4e4-4347-a703-8e4193d3e1c9',
+                        verifyDeployments: true
             }
         }
     }
