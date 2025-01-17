@@ -1,0 +1,17 @@
+name: 7_workflow_0_parent
+
+on:
+  workflow_call:
+    input_username:
+        required: true
+        type: string
+    input_password:
+        type: string
+        required: false
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Running tests"
+          echo "username- {{ input_username}} passsword- {{ input_password}} "

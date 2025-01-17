@@ -1,0 +1,11 @@
+name: 7_workflow_1_child
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow-passing-data:
+    uses: cloud99ashwani/devops/.github/workflows/7_workflow_0_parent.yml@master
+    with:
+      input_username: 'test-input-username'
+      input_password: ''
