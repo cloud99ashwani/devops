@@ -1,0 +1,14 @@
+name: 9_debug
+
+on:
+  workflow_dispatch:
+jobs:
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        run: echo "github details - ${{ toJson(github) }}"
+      - name: Dump job context
+        run: echo "github job deails - ${{ toJson(job) }}"
+      - name: Dump runner context
+        run: echo "runner details -  ${{ toJson(runner) }}"
