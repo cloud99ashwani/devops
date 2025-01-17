@@ -1,0 +1,16 @@
+name: 7_workflow_2_child_multiple_values
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow-passing-data:
+    strategy:
+      matrix:
+        target: [username1, username2, username3]
+    uses: cloud99ashwani/devops/.github/workflows/7_workflow_0_parent.yml@master
+    with:
+      username1: ${{ matrix.target }}
+      username2: testUsername2
+    secrets:
+      username3: ${{ secrets.username3 }}
