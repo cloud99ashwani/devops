@@ -1,4 +1,4 @@
-name: 5_var_4_userInput
+name: 6_conditional_1_outputOfJob
 
 on:
   workflow_dispatch:
