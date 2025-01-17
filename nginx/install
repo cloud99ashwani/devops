@@ -1,0 +1,20 @@
+docker pull nginx:1.27.3-alpine
+docker run --name docker-nginx -p 8080:80 -d -v ./nginx/ui-project:/usr/share/nginx/html nginx:1.27.3-alpine
+docker rm docker-nginx
+
+http://localhost:8080/
+
+#copy from container to local
+docker cp docker-nginx:/etc/nginx/conf.d/default.conf ./nginx/default.conf
+
+docker stop docker-nginx
+docker rm docker-nginx
+# add the local - default.conf to container vm
+docker run --name docker-nginx -p 8080:80 -d -v ./nginx/ui-project:/usr/share/nginx/html -v ./nginx/default.conf:/etc/nginx/conf.d/default.conf  nginx:1.27.3-alpine
+
+
+docker exec -it docker-nginx /bin/sh
+
+
+
+
