@@ -3,10 +3,10 @@ name: 7_workflow_0_parent
 on:
   workflow_call:
     inputs:
-      input_username1:
+      username1:
           required: true
           type: string
-      input_username2:
+      username2:
           type: string
           required: false
 jobs:
@@ -15,4 +15,4 @@ jobs:
     steps:
       - run: |
           echo "Running tests"
-          echo "username1- {{ inputs.input_username1 }} username2- {{ inputs.input_username2 }} "
+          echo "username1- {{ inputs.username1 }} username2- {{ inputs.username2 }} "
