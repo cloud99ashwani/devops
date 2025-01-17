@@ -9,3 +9,5 @@ jobs:
     with:
       username1: testUsername1
       username2: testUsername2
+    secrets:
+      username3: ${{ secrets.username3 }}

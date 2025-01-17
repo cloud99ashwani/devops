@@ -2,17 +2,20 @@ name: 7_workflow_0_parent
 
 on:
   workflow_call:
-    inputs:
+    inputs: # input directly
       username1:
           required: true
           type: string
       username2:
           type: string
           required: false
+    secrets: # input only secrets
+      username3:
+        required: true
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "Running tests"
-          echo "username1- ${{ inputs.username1 }} username2- ${{ inputs.username2 }} "
+          echo "username1- ${{ inputs.username1 }} username2- ${{ inputs.username2 }} ${{ secrets.username3 }}"
