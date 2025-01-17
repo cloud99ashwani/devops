@@ -7,5 +7,5 @@ jobs:
   call-workflow-passing-data:
     uses: cloud99ashwani/devops/.github/workflows/7_workflow_0_parent.yml@master
     with:
-      username1: 'testUsername1'
-      username2: 'testUsername2'
+      username1: testUsername1
+      username2: testUsername2
