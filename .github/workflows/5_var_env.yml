@@ -1,0 +1,19 @@
+name: 5_var_env
+on:
+  workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Monday  # Workflow level variable
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello  # Job level variable
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: |
+          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!" # accessing unix way
+          echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"  # accessing by github workflow context
+        env:
+          First_Name: Mona  # Step level variable
