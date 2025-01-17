@@ -18,4 +18,4 @@ jobs:
     steps:
       - run: |
           echo "Running tests"
-          echo "username1- ${{ inputs.username1 }} username2- ${{ inputs.username2 }} ${{ secrets.username3 }}"
+          echo "username1- ${{ inputs.username1 }} username2- ${{ inputs.username2 }} username3-${{ secrets.username3 }}"
