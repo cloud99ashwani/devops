@@ -2,10 +2,10 @@ name: 7_workflow_0_parent
 
 on:
   workflow_call:
-    input_username:
+    input_username1:
         required: true
         type: string
-    input_password:
+    input_username2:
         type: string
         required: false
 jobs:
@@ -14,4 +14,4 @@ jobs:
     steps:
       - run: |
           echo "Running tests"
-          echo "username- {{ input_username}} passsword- {{ input_password}} "
+          echo "username1- {{ input_username1}} username2- {{ input_username2}} "
