@@ -1,0 +1,21 @@
+name: 5_var_0.0_env_create_update
+on:
+  workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Monday  # Workflow level variable
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello  # Job level variable
+    steps:
+      - name: Set env
+        run: echo "First_Name=Devops" >> $GITHUB_ENV
+      - name: Test1
+        run: 
+          echo $First_Name
+          echo "First_Name=Devops1" >> $GITHUB_ENV
+      - name: Test2
+        run: echo $First_Name

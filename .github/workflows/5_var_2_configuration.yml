@@ -1,0 +1,19 @@
+name: 5_var_2_configuration
+
+on: workflow_dispatch
+env:
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}  # Access configuration variables
+
+jobs:
+  display-variables:
+    runs-on: ${{ vars.RUNNER }}
+    steps:
+      - name: Show variables
+        run: |
+          echo "Repo variable: $REPOSITORY_VAR"
+          echo "Org variable: $ORGANIZATION_VAR"
+          echo "Overridden variable: $OVERRIDE_VAR"
+        env:
+          REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+          ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+          OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}

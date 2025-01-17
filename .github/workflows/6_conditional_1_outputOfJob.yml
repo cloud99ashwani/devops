@@ -1,0 +1,26 @@
+name: 5_var_4_userInput
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building project"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: echo "Running tests"
+      - id: set_test_output
+        run: echo "::set-output name=should_deploy::yes"
+    outputs:
+      should_deploy: ${{ steps.set_test_output.outputs.should_deploy }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    if: needs.test.outputs.should_deploy == 'yes' && (needs.test.result == 'success' || needs.test.result == 'skipped')
+    steps:
+      - run: echo "Deploying project"
