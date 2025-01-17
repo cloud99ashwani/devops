@@ -11,9 +11,9 @@ jobs:
     env:
       Greeting: Hello  # Job level variable
     steps:
-      - name: "Say Hello Mona it's Monday"
+      - name: "Say Hello Devops it's Monday"
         run: |
           echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!" # accessing unix way
           echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"  # accessing by github workflow context
         env:
-          First_Name: Mona  # Step level variable
+          First_Name: Devops  # Step level variable
